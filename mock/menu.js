@@ -1,8 +1,30 @@
 const Mock = require('mockjs');
 const menuData = [
     {
-        title: "gitDataV",
-        key: "gitDataV",
+        title: "首页",
+        key: "home",
+    },
+    {
+        title: "我的收藏",
+        key: "collection",
+    },
+    {
+        title: "系统设置",
+        key: "setting",
+        children: [
+            {
+                title: "组织架构管理",
+                key: "organizationManagement"
+            },
+            {
+                title: "员工类别设置",
+                key: "employeeTypeSetting"
+            },
+            {
+                title: "权限管控中心",
+                key: "authorizationCenter"
+            }
+        ]
     },
     {
         title: "地域分析",
@@ -11,10 +33,6 @@ const menuData = [
     {
         title: "users",
         key: "users",
-    },
-    {
-        title: "404",
-        key: "404",
     },
     {
         title: "用户行为",
@@ -33,72 +51,6 @@ const menuData = [
                 key: "p2",
             },
         ]
-    },
-    {
-        title: "echarts组件",
-        key: "echarts",
-        children: [
-            {
-                key: 'Bar',
-                title: 'Bar'
-            },
-            {
-                key: 'line',
-                title: 'Line'
-            },
-            {
-                key: 'area',
-                title: 'Area'
-            },
-            {
-                key: 'yBar',
-                title: 'YBar'
-            },
-            {
-                key: 'funnel',
-                title: 'Funnel'
-            },
-            {
-                key: 'pie',
-                title: 'Pie'
-            },
-            {
-                key: 'pieDoughnut',
-                title: 'PieDoughnut'
-            },
-            {
-                key: 'sankey',
-                title: 'Sankey'
-            },
-        ]
-    },
-    {
-        title: "d3.js组件",
-        key: "d3Chart",
-        children: [
-            {
-                title: "树图",
-                key: "treePage",
-            },
-        ]
-    },
-    {
-        title: "iframe",
-        key: "iframe",
-        children: [
-            {
-                title: "bing",
-                key: "bing",
-            }
-        ]
-    },
-    {
-        title: "图形组件",
-        key: "react-charts",
-    },
-    {
-        title: "请给star",
-        key: "github",
     },
 ];
 const data = Mock.mock({
