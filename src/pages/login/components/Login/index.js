@@ -53,6 +53,7 @@ class Login extends PureComponent {
                             }]
                         })(
                             <Input
+                                size="large"
                                 prefix={<Icon type="user" className={styles.color} />}
                                 onChange={this.handleChange}
                                 placeholder={formatMessage({ id: 'login.userName' })}
@@ -67,6 +68,7 @@ class Login extends PureComponent {
                             rules: [{ required: true, message: '请输入密码!' }],
                         })(
                             <Input
+                                size="large"
                                 prefix={<Icon type="lock" className={styles.color} />}
                                 type="password"
                                 onChange={this.handleChange}
@@ -85,7 +87,7 @@ class Login extends PureComponent {
                         <Button type="primary" htmlType="submit" className={styles.login_form_button} loading={loading}>
                             {formatMessage({ id: 'login.login' })}
                         </Button>
-                        <a href="/#register">   {formatMessage({ id: 'login.signup' })}!</a>
+                        {/* <a href="/#register">   {formatMessage({ id: 'login.signup' })}!</a> */}
                     </FormItem>
                 </Form>
             </div >

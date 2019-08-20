@@ -23,7 +23,59 @@ const menuData = [
             {
                 title: "权限管控中心",
                 key: "authorizationCenter"
+            },
+            {
+                title: "考勤统计项设置",
+                key: "statisticalItems",
+                children: [
+                    {
+                        title: "请假类别设置",
+                        key: "leaveCategory"
+                    },
+                    {
+                        title: "加班类别设置",
+                        key: "overtimeCategory"
+                    },
+                    {
+                        title: "迟到类别设置",
+                        key: "lateCategory"
+                    },
+                    {
+                        title: "早退类别设置",
+                        key: "earlyRetirementCategory"
+                    },
+                ]
             }
+        ]
+    },
+    {
+        title: "日常考勤管理",
+        key: "dailyAttendanceManagement",
+        children: [
+            {
+                title: "员工档案信息",
+                key: "employeeInfo",
+                children: [
+                    {
+                        title: "员工信息管理",
+                        key: "employeeInfoManagement"
+                    },
+                ]
+            }
+        ]
+    },
+    {
+        title: "员工自助",
+        key: "employeeSelfService",
+        children: [
+            {
+                title: "我的考勤卡",
+                key: "myAttendanceCard"
+            },
+            {
+                title: "我的考勤月报",
+                key: "myMonthlyAttendance"
+            },
         ]
     },
     {

@@ -34,6 +34,76 @@ export default [
                 key: "authorizationCenter",
                 icon: "question-circle",
             },
+            {
+                title: "考勤统计项设置",
+                key: "statisticalItems",
+                icon: "question-circle",
+                children: [
+                    {
+                        title: "请假类别设置",
+                        link: "/sys/setting/statisticalItems/leaveCategory",
+                        key: "leaveCategory",
+                        icon: ""
+                    },
+                    {
+                        title: "加班类别设置",
+                        link: "/sys/setting/statisticalItems/overtimeCategory",
+                        key: "overtimeCategory",
+                        icon: ""
+                    },
+                    {
+                        title: "迟到类别设置",
+                        link: "/sys/setting/statisticalItems/lateCategory",
+                        key: "lateCategory",
+                        icon: ""
+                    },
+                    {
+                        title: "早退类别设置",
+                        link: "/sys/setting/statisticalItems/earlyRetirementCategory",
+                        key: "earlyRetirementCategory",
+                        icon: ""
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        title: "日常考勤管理",
+        key: "dailyAttendanceManagement",
+        icon: "team",
+        children:[
+            {
+                title: "员工档案信息",
+                key: "employeeInfo",
+                icon: "",
+                children: [
+                    {
+                        title: "员工信息管理",
+                        link: "/sys/dailyAttendanceManagement/employeeInfo/employeeInfoManagement",
+                        key: "employeeInfoManagement",
+                        icon: ""
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        title: "员工自助",
+        key: "employeeSelfService",
+        icon: "user",
+        children: [
+            {
+                title: "我的考勤卡",
+                link: "/sys/employeeSelfService/myAttendanceCard",
+                key: "myAttendanceCard",
+                icon: ""
+            },
+            {
+                title: "我的考勤月报",
+                link: "/sys/employeeSelfService/myMonthlyAttendance",
+                key: "myMonthlyAttendance",
+                icon: ""
+            },
         ]
     },
     {

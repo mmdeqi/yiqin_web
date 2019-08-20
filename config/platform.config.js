@@ -18,7 +18,7 @@ module.exports = {
     // 系统名称
     sysName: 'TEST-Pro',
     // 版权
-    copyright: "2019 mpw0311@163.com.",
+    copyright: "北京易勤信息技术有限公司　All Right Reserved.",
     // 是否开启菜单权限校验
     menuPermission: true,
     // table默认一页条数
