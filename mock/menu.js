@@ -78,32 +78,6 @@ const menuData = [
             },
         ]
     },
-    {
-        title: "地域分析",
-        key: "regionalAnalysis",
-    },
-    {
-        title: "users",
-        key: "users",
-    },
-    {
-        title: "用户行为",
-        key: "yonghuxingwei",
-        children: [
-            {
-                title: "路径分析",
-                key: "pathAnalysis",
-            },
-            {
-                title: "view1",
-                key: "p1",
-            },
-            {
-                title: "view2",
-                key: "p2",
-            },
-        ]
-    },
 ];
 const data = Mock.mock({
     data: menuData,

@@ -16,7 +16,7 @@ module.exports = {
     // 登录页名称
     loginName: '数据平台',
     // 系统名称
-    sysName: 'TEST-Pro',
+    sysName: '易勤 V8.0',
     // 版权
     copyright: "北京易勤信息技术有限公司　All Right Reserved.",
     // 是否开启菜单权限校验

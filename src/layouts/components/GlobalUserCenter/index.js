@@ -21,19 +21,19 @@ export default class SelectLang extends PureComponent {
             onSetting(param);
         };
         const menu = (<Menu onClick={handleMenuClick}>
-            <Menu.Item key={"sys/user"} state={{ userName, pathtitles: ["个人中心"] }} disabled>
+            {/* <Menu.Item key={"sys/user"} state={{ userName, pathtitles: ["个人中心"] }} disabled>
                 <Icon type="user" />  {formatMessage({ id: 'platform.userCenter' })}
-            </Menu.Item>
-            {/* <Menu.Item key={"/resetPassword"} state={{ userName, pathtitles: ["修改密码"] }}>
-            <Icon type="edit" />  修改密码
-        </Menu.Item> */}
-            <Menu.Item key={"sys/settings"} state={{ userName, pathtitles: ["设置中心"] }} disabled>
+            </Menu.Item> */}
+            <Menu.Item key={"/resetPassword"} state={{ userName, pathtitles: ["修改密码"] }}>
+            <Icon type="key" />  {formatMessage({ id: 'platform.changePassword' })}
+        </Menu.Item>
+            {/* <Menu.Item key={"sys/settings"} state={{ userName, pathtitles: ["设置中心"] }} disabled>
                 <Icon type="setting" />  {formatMessage({ id: 'platform.settings' })}
+            </Menu.Item> */}
+            <Menu.Item key={"/versions"} state={{ userName, pathtitles: ["使用说明"] }}>
+                <Icon type="question-circle" />   {formatMessage({ id: 'platform.log' })}
             </Menu.Item>
-            <Menu.Item key={"/versions"} state={{ userName, pathtitles: ["更新日志"] }}>
-                <Icon type="edit" />   {formatMessage({ id: 'platform.log' })}
-            </Menu.Item>
-            <Menu.Divider />
+            {/* <Menu.Divider /> */}
             <Menu.Item key="logout" state={{ userName }}>
                 <Icon type="logout" />   {formatMessage({ id: 'platform.logout' })}
             </Menu.Item>

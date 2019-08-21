@@ -13,7 +13,6 @@ function Index(props) {
   if (
     pathname === '/' ||
     pathname === '/login' ||
-    pathname === '/register' ||
     /^\/initialize/.test(pathname) ||
     /^\/exception/.test(pathname)
   ) {

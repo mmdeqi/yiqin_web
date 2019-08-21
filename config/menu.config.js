@@ -106,41 +106,4 @@ export default [
             },
         ]
     },
-    {
-        title: "地域分析",
-        link: "/sys/regionalAnalysis",
-        key: "regionalAnalysis",
-        icon: "idcard"
-    },
-    {
-        title: "用户行为",
-        key: "yonghuxingwei",
-        icon: "contacts",
-        children: [
-            {
-                title: "路径分析",
-                link: "/sys/pathAnalysis",
-                key: "pathAnalysis",
-                icon: "link"
-            },
-            {
-                title: "view1",
-                link: "/sys/view/p1",
-                key: "p1",
-                icon: "line-chart"
-            },
-            {
-                title: "view2",
-                link: "/sys/view/p2",
-                key: "p2",
-                icon: "bar-chart"
-            },
-        ]
-    },
-    {
-        title: "用户分析",
-        link: "/sys/users",
-        key: "users",
-        icon: "user"
-    },
 ];

@@ -87,7 +87,6 @@ class Login extends PureComponent {
                         <Button type="primary" htmlType="submit" className={styles.login_form_button} loading={loading}>
                             {formatMessage({ id: 'login.login' })}
                         </Button>
-                        {/* <a href="/#register">   {formatMessage({ id: 'login.signup' })}!</a> */}
                     </FormItem>
                 </Form>
             </div >

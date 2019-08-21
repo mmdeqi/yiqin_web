@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { List, Checkbox, Select } from 'antd';
+import { formatMessage } from 'umi/locale';
 import { Page } from '@components';
 import { methods } from '@utils';
 import styles from './index.less';
@@ -13,12 +13,20 @@ import styles from './index.less';
 )
 class Index extends Component {
     render() {
-        const { loading } = this.props;
         return (
-            <Page loading={false} title={'首页'} flex>
+            <Page 
+                pathtitles={[{
+                    title: '首页',
+                    icon: 'home'
+                }]}
+                loading={false} 
+                title={'首页'} 
+                flex
+                description={formatMessage({ id: 'home.desc' })}
+                >
                 <div>
                     Home
-            </div>
+                </div>
             </Page>
         );
     }

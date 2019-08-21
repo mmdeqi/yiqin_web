@@ -1,4 +1,3 @@
-import Register from './Register';
 import Icon from './Icon';
 import DataTable from './DataTable';
 import Breadcrumb from './Breadcrumb';
@@ -18,7 +17,6 @@ export {
     Announcement,
     PageHeader,
     ResetPassword,
-    Register,
     Page,
     GlobalDrawer,
     Exception,
