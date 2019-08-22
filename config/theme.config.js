@@ -8,5 +8,7 @@ module.exports = {
     "@shadow-1": "4px 4px 20px 0 rgba(0, 0, 0, 0.01)",
     "@shadow-2": "4px 4px 40px 0 rgba(0, 0, 0, 0.05)",
     "@line-height-base": "1.2",
-    // "@menu-dark-bg": "#333"
+    "@menu-dark-bg": "#4276a4",  // 主菜单背景色
+    "@menu-dark-item-active-bg": "#d64635",  // 选中的背景色
+    "@menu-dark-submenu-bg": "#2d5f8b",  // 子菜单背景色
 };

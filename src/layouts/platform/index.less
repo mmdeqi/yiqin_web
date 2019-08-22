@@ -8,6 +8,8 @@
         height: 100vh;
         position: fixed;
         left: 0;
+        // width: 250px !important;
+        // max-width: 250px !important;
     }
 
     /***系统主体部分***/
@@ -17,10 +19,14 @@
 
         /***系统头部***/
         .contentHeader {
-            background: #fff;
+            background: #2d5f8b;
             padding: 0;
             display: flex;
-            justify-content: space-between
+            justify-content: space-between;
+            color: #b6d0e7;
+            :global(.anticon) {
+                color: #b6d0e7;
+            }
         }
 
         /***系统内容区域***/

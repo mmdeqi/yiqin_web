@@ -19,7 +19,7 @@ class Index extends PureComponent {
             logoPage = imgLogo;
         } else {
             logoPage = (
-                <Row >
+                <Row style={{background: '#2d5f8b'}} >
                     <Col span={7}>
                         {/* {imgLogo} */}
                     </Col>

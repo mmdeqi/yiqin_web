@@ -15,14 +15,10 @@ class Index extends Component {
     render() {
         return (
             <Page 
-                pathtitles={[{
-                    title: '首页',
-                    icon: 'home'
-                }]}
                 loading={false} 
                 title={'首页'} 
                 flex
-                description={formatMessage({ id: 'home.desc' })}
+                // description={formatMessage({ id: 'home.desc' })}
                 >
                 <div>
                     Home
