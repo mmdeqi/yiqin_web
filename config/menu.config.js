@@ -30,8 +30,8 @@ export default [
             },
             {
                 title: "权限管控中心",
-                link: "/sys/setting/authorizationCenter",
-                key: "authorizationCenter",
+                link: "/sys/setting/rightsCenter",
+                key: "rightsCenter",
                 icon: "question-circle",
             },
             {

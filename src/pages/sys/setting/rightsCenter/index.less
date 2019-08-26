@@ -1,6 +1,26 @@
-.employeeInfoManagement {
+.rightsCenter {
     width: 100%;
-    .button_group {
+    overflow: hidden;
+    .center_left {
+        width: 46%;
+        overflow: hidden;
+        float: left;
+    }
+    .center_right {
+        width: 50%;
+        overflow: hidden;
+        float: right;
+        .top_search {
+            float: right;
+        }
+        .top_title {
+            display: inline-block;
+            margin: 0;
+            margin-top: 14px;
+            color: #9eacb4;
+        }
+    }
+    .top_wrap {
         width: 100%;
         overflow: hidden;
         margin-bottom: 15px;
@@ -17,22 +37,9 @@
         :global(.ant-btn) {
             color: #fff;
             float: right;
-            margin-right: 10px;
             :global(.anticon) {
                 line-height: 0;
             }
         }
-    }
-    .search_wrap {
-        width: 200px;
-        margin-bottom: 10px;
-    }
-    .table {
-        width: 100%;
-    }
-    .avatar-uploader > .ant-upload {
-        width: 128px;
-        height: 128px;
-        overflow: hidden;
     }
 }

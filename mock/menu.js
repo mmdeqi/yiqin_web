@@ -22,7 +22,7 @@ const menuData = [
             },
             {
                 title: "权限管控中心",
-                key: "authorizationCenter"
+                key: "rightsCenter"
             },
             {
                 title: "考勤统计项设置",
