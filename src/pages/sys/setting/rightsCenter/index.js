@@ -106,12 +106,17 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            visibleAdd: false,
+            visibleAddRole: false,
+            visibleAddUser: false,
             loadingAdd: false,
             visibleProperty: false,
             visibleRights: false,
             visibleManagement: false,
+            visibleEdit: false,
             rightDisplay: false,
+            editAndDelDisplay: true,
+            addUserBtnDisplay: true,
+            stopOrDelDisplay: true,
             positionName: '',
             expandedKeys: ['0'],
             searchValue: '',
@@ -120,27 +125,27 @@ class Index extends Component {
     }
 
     // 添加角色弹窗显示
-    showModalAdd = () => {
+    showModalAddRole = () => {
         this.setState({
-            visibleAdd: true,
+            visibleAddRole: true,
         });
     };
 
     // 添加角色弹窗关闭
-    handleCancelAdd = () => {
-        this.setState({ visibleAdd: false });
+    handleCancelAddRole = () => {
+        this.setState({ visibleAddRole: false });
     };
 
     // 添加角色弹窗提交后关闭
-    handleOkAdd = () => {
+    handleOkAddRole = () => {
         this.setState({ loading: true });
         setTimeout(() => {
-            this.setState({ loading: false, visible: false });
+            this.setState({ loading: false, visibleAddRole: false });
         }, 2000);
     };
 
     // 添加角色弹窗表单提交
-    handleSubmitAdd = e => {
+    handleSubmitAddRole = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
@@ -150,7 +155,42 @@ class Index extends Component {
 
         this.setState({ loadingAdd: true });
         setTimeout(() => {
-            this.setState({ loadingAdd: false, visibleAdd: false });
+            this.setState({ loadingAdd: false, visibleAddRole: false });
+        }, 3000);
+    };
+
+    // 添加用户弹窗显示
+    showModalAddUser = () => {
+        this.setState({
+            visibleAddUser: true,
+        });
+    };
+
+    // 添加用户弹窗关闭
+    handleCancelAddUser = () => {
+        this.setState({ visibleAddUser: false });
+    };
+
+    // 添加用户弹窗提交后关闭
+    handleOkAddUser = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false, visibleAddUser: false });
+        }, 2000);
+    };
+
+    // 添加用户弹窗表单提交
+    handleSubmitAddUser = e => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+
+        this.setState({ loadingAdd: true });
+        setTimeout(() => {
+            this.setState({ loadingAdd: false, visibleAddUser: false });
         }, 3000);
     };
 
@@ -184,6 +224,42 @@ class Index extends Component {
         this.setState({ visibleRights: false });
     };
 
+    // 左侧编辑弹窗显示
+    showLeftModalEdit = (text, record, index) => {
+        this.setState({
+            visibleEdit: true,
+            rightDisplay: true
+        });
+    }
+
+    // 左侧编辑弹窗关闭
+    handleCancelEdit = () => {
+        this.setState({ visibleEdit: false });
+    };
+
+    // 左侧编辑弹窗提交后关闭
+    handleOkEdit = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false, visibleEdit: false });
+        }, 2000);
+    };
+
+    // 左侧编辑弹窗表单提交
+    handleSubmitEdit = e => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+
+        this.setState({ loadingAdd: true });
+        setTimeout(() => {
+            this.setState({ loadingAdd: false, visibleEdit: false });
+        }, 3000);
+    };
+
     // 管理部门弹窗显示
     showModalManagement = (text, record, index) => {
         console.log(text, record, index);
@@ -202,6 +278,37 @@ class Index extends Component {
         console.log(text, record, index);
         confirm({
             content: '确定停用此人吗？',
+            cancelText: '取消',
+            okText: '确定',
+            onOk() {
+                console.log('OK');
+            },
+            onCancel() {
+                console.log('Cancel');
+            },
+        });
+    }
+
+    // 右侧删除弹窗显示
+    showRightModalDelete = (text, record, index) => {
+        confirm({
+            content: '确定将*陈玉敏*从系统管理员中删除吗?',
+            cancelText: '取消',
+            okText: '确定',
+            onOk() {
+                console.log('OK');
+            },
+            onCancel() {
+                console.log('Cancel');
+            },
+        });
+    }
+
+    // 左侧删除弹窗显示
+    showLeftModalDelete = (text, record, index) => {
+        console.log(text, record, index);
+        confirm({
+            content: '确定删除角色系统管理员吗?',
             cancelText: '取消',
             okText: '确定',
             onOk() {
@@ -248,12 +355,17 @@ class Index extends Component {
 
     render() {
         const {
-            visibleAdd,
+            visibleAddRole,
+            visibleAddUser,
             loadingAdd,
             visibleProperty,
             visibleRights,
             visibleManagement,
+            visibleEdit,
             rightDisplay,
+            editAndDelDisplay,
+            addUserBtnDisplay,
+            stopOrDelDisplay,
             positionName,
             searchValue,
             expandedKeys,
@@ -292,10 +404,17 @@ class Index extends Component {
                         <a onClick={() => { this.showModalProperty(text, record, index) }}>属性</a>
                         <Divider type="vertical" />
                         <a onClick={() => { this.showModalRights(text, record, index) }}>权限</a>
-                        <Divider type="vertical" />
-                        <a onClick={() => { this.showModalRights(text, record, index) }}>编辑</a>
-                        <Divider type="vertical" />
-                        <a onClick={() => { this.showModalRights(text, record, index) }}>删除</a>
+                        {
+                            editAndDelDisplay ?
+                                <span>
+                                    <Divider type="vertical" />
+                                    <a onClick={() => { this.showLeftModalEdit(text, record, index) }}>编辑</a>
+                                    <Divider type="vertical" />
+                                    <a onClick={() => { this.showLeftModalDelete(text, record, index) }}>删除</a>
+                                </span>
+                                :
+                                null
+                        }
                     </span>
                 ),
             },
@@ -326,7 +445,13 @@ class Index extends Component {
                     <span>
                         <a onClick={() => { this.showModalManagement(text, record, index) }}>管理部门</a>
                         <Divider type="vertical" />
-                        <a onClick={() => { this.showModalStop(text, record, index) }}>停用</a>
+                        {
+                            stopOrDelDisplay ?
+                                <a onClick={() => { this.showRightModalDelete(text, record, index) }}>删除</a>
+                                :
+                                <a onClick={() => { this.showModalStop(text, record, index) }}>停用</a>
+                        }
+
                     </span>
                 ),
             },
@@ -378,10 +503,6 @@ class Index extends Component {
                                             item.personList.map((it) => {
                                                 return (
                                                     <Tag color="#45B6AF">{it.name}</Tag>
-                                                    // <span style={{ background: '#45B6AF', color: '#fff', padding: '3px 5px', marginRight: '5px' }}>
-                                                    //     <span>{it.name}</span>
-                                                    //     <Icon type="info-circle" theme="filled" />
-                                                    // </span>
                                                 )
                                             }) :
                                             null
@@ -403,12 +524,9 @@ class Index extends Component {
                                     item.personList.map((it) => {
                                         return (
                                             <Tag color="#45B6AF">{it.name}</Tag>
-                                            // <span style={{ background: '#45B6AF', color: '#fff', padding: '3px 5px', marginRight: '5px' }}>
-                                            //     <span>{it.name}</span>
-                                            //     <Icon type="info-circle" theme="filled" />
-                                            // </span>
                                         )
-                                    }) :
+                                    })
+                                    :
                                     null
                             }
                         </span>
@@ -422,7 +540,7 @@ class Index extends Component {
                     <div className={styles.center_left}>
                         <div className={styles.top_wrap}>
                             <h2><Icon type="team" />&nbsp;<span>员工信息管理</span></h2>
-                            <Button style={{ background: '#26a69a' }} onClick={this.showModalAdd}>
+                            <Button style={{ background: '#26a69a' }} onClick={this.showModalAddRole}>
                                 <Icon type="plus" />
                                 <span>添加角色</span>
                             </Button>
@@ -434,24 +552,58 @@ class Index extends Component {
                                 dataSource={tableData}
                                 onRow={record => {
                                     return {
-                                      onClick: event => {this.onRowSelected(record)}, // 点击行
+                                        onClick: event => { this.onRowSelected(record) }, // 点击行
                                     };
-                                  }}
+                                }}
                             />
                         </div>
                         <div>
                             <Modal
-                                visible={visibleAdd}
-                                title="添加员工"
-                                onOk={this.handleOkAdd}
-                                onCancel={this.handleCancelAdd}
+                                visible={visibleAddRole}
+                                title="添加角色"
+                                onOk={this.handleOkAddRole}
+                                onCancel={this.handleCancelAddRole}
                                 footer={[
-                                    <Button key="back" onClick={this.handleCancelAdd}>
+                                    <Button key="back" onClick={this.handleCancelAddRole}>
                                         取消
-                                </Button>,
-                                    <Button key="submit" type="primary" loading={loadingAdd} onClick={this.handleSubmitAdd}>
+                                    </Button>,
+                                    <Button key="submit" type="primary" loading={loadingAdd} onClick={this.handleSubmitAddRole}>
                                         提交
-                                </Button>
+                                    </Button>
+                                ]}
+                            >
+                                <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                                    <Form.Item label="名称">
+                                        {getFieldDecorator('name', {
+                                            rules: [{ required: true, message: '名称不能为空!' }],
+                                        })(<Input />)}
+                                    </Form.Item>
+                                    <Form.Item label="角色职责">
+                                        {getFieldDecorator('roleDuty', {
+                                            rules: [{ required: false }],
+                                        })(<Input />)}
+                                    </Form.Item>
+                                    <Form.Item label="继承">
+                                        {getFieldDecorator('inherit', {
+                                            rules: [{ required: false }],
+                                        })(<Checkbox>子系统管理员可用</Checkbox>)}
+                                    </Form.Item>
+                                </Form>
+                            </Modal>
+                        </div>
+                        <div>
+                            <Modal
+                                visible={visibleAddUser}
+                                title="添加用户"
+                                onOk={this.handleOkAddUser}
+                                onCancel={this.handleCancelAddUser}
+                                footer={[
+                                    <Button key="back" onClick={this.handleCancelAddUser}>
+                                        取消
+                                    </Button>,
+                                    <Button key="submit" type="primary" loading={loadingAdd} onClick={this.handleSubmitAddUser}>
+                                        提交
+                                    </Button>
                                 ]}
                             >
                                 <Form {...formItemLayout} onSubmit={this.handleSubmit}>
@@ -510,15 +662,55 @@ class Index extends Component {
                                 </p>
                             </Modal>
                         </div>
+                        <div>
+                            <Modal
+                                visible={visibleEdit}
+                                title="编辑角色"
+                                onOk={this.handleOkEdit}
+                                onCancel={this.handleCancelEdit}
+                                footer={[
+                                    <Button key="back" onClick={this.handleCancelEdit}>
+                                        取消
+                                    </Button>,
+                                    <Button key="submit" type="primary" loading={loadingAdd} onClick={this.handleSubmitEdit}>
+                                        提交
+                                    </Button>
+                                ]}
+                            >
+                                <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                                    <Form.Item label="名称">
+                                        {getFieldDecorator('name', {
+                                            rules: [{ required: true, message: '名称不能为空!' }],
+                                        })(<Input />)}
+                                    </Form.Item>
+                                    <Form.Item label="角色职责">
+                                        {getFieldDecorator('roleDuty', {
+                                            rules: [{ required: false }],
+                                        })(<Input />)}
+                                    </Form.Item>
+                                    <Form.Item label="继承">
+                                        {getFieldDecorator('inherit', {
+                                            rules: [{ required: false }],
+                                        })(<Checkbox>子系统管理员可用</Checkbox>)}
+                                    </Form.Item>
+                                </Form>
+                            </Modal>
+                        </div>
                     </div>
                     <div className={styles.center_right} style={rightDisplay ? { display: 'block' } : { display: 'none' }}>
                         <div className={styles.top_wrap}>
                             <h2><Icon type="team" />&nbsp;<span>{positionName} </span></h2>
                             <span className={styles.top_title}> &nbsp;&lt; 职务：{positionName} &gt; </span>
-                            <Button style={{ background: '#26a69a' }} onClick={this.showModalAdd}>
-                                <Icon type="plus" />
-                                <span>添加角色</span>
-                            </Button>
+                            {
+                                addUserBtnDisplay ?
+                                    <Button style={{ background: '#26a69a' }} onClick={this.showModalAddUser}>
+                                        <Icon type="plus" />
+                                        <span>添加用户</span>
+                                    </Button>
+                                    :
+                                    null
+                            }
+
                         </div>
                         <Tabs tabPosition='bottom'>
                             <TabPane tab="操作员列表" key="1">

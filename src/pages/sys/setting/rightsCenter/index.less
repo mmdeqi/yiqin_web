@@ -1,15 +1,31 @@
 .rightsCenter {
     width: 100%;
     overflow: hidden;
+    @media only screen and (max-width: 1000px) {
+        .center_left {
+            width: 100%;
+        }
+        .center_right {
+            width: 100%;
+            float: left;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .center_left {
+            width: 46%;
+        }
+        .center_right {
+            width: 50%;
+            float: right;
+        }
+    }
     .center_left {
-        width: 46%;
         overflow: hidden;
         float: left;
     }
     .center_right {
-        width: 50%;
         overflow: hidden;
-        float: right;
         .top_search {
             float: right;
         }
