@@ -13,7 +13,7 @@ import logo from '../../assets/logo.png';
 class Index extends PureComponent {
     render() {
         const { collapsed } = this.props;
-        const imgLogo = <img src={logo} alt="pro" style={{ height: '54px' }} />;
+        const imgLogo = <img src={logo} alt="pro" style={{ height: '64px' }} />;
         let logoPage;
         if (collapsed) {
             logoPage = imgLogo;

@@ -154,6 +154,7 @@ class Platform extends PureComponent {
                                 collapsible
                                 collapsed={collapsed}
                                 className={styles.sider}
+                                width={250}
                             >
                                 {/* LOGO */}
                                 <Logo collapsed={collapsed} />
@@ -166,7 +167,7 @@ class Platform extends PureComponent {
                                 />
                             </Sider>
                             {/* 系统主体部分 */}
-                            <Layout id="backTop" className={styles.container} style={{ marginLeft: collapsed ? 80 : 200 }}>
+                            <Layout id="backTop" className={styles.container} style={{ marginLeft: collapsed ? 80 : 250 }}>
                                 {/* 系统头部 */}
                                 <Header className={styles.contentHeader}>
                                     <div style={{ width: 100 }}>
