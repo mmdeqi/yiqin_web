@@ -548,8 +548,14 @@ class Index extends Component {
                         <div className={styles.table}>
                             <Table
                                 size='small'
+                                bordered='true'
                                 columns={columns}
                                 dataSource={tableData}
+                                rowClassName={(record, index) => {
+                                    let className = 'dark_row';
+                                    if (index % 2 === 1) className = 'light_row';
+                                    return className;
+                                }}
                                 onRow={record => {
                                     return {
                                         onClick: event => { this.onRowSelected(record) }, // 点击行
@@ -720,7 +726,17 @@ class Index extends Component {
                                     style={{ marginBottom: 8, width: 200 }}
                                 />
                                 <div className={styles.table}>
-                                    <Table size='small' columns={columnsRight} dataSource={tableDataRight} />
+                                    <Table
+                                        size='small'
+                                        bordered='true'
+                                        columns={columnsRight}
+                                        dataSource={tableDataRight}
+                                        rowClassName={(record, index) => {
+                                            let className = 'dark_row';
+                                            if (index % 2 === 1) className = 'light_row';
+                                            return className;
+                                        }}
+                                    />
                                 </div>
                             </TabPane>
                             <TabPane tab="部门授权列表" key="2">
