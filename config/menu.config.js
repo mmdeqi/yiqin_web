@@ -36,34 +36,9 @@ export default [
             },
             {
                 title: "考勤统计项设置",
+                link: "/sys/setting/statisticalItems",
                 key: "statisticalItems",
                 icon: "question-circle",
-                children: [
-                    {
-                        title: "请假类别设置",
-                        link: "/sys/setting/statisticalItems/leaveCategory",
-                        key: "leaveCategory",
-                        icon: ""
-                    },
-                    {
-                        title: "加班类别设置",
-                        link: "/sys/setting/statisticalItems/overtimeCategory",
-                        key: "overtimeCategory",
-                        icon: ""
-                    },
-                    {
-                        title: "迟到类别设置",
-                        link: "/sys/setting/statisticalItems/lateCategory",
-                        key: "lateCategory",
-                        icon: ""
-                    },
-                    {
-                        title: "早退类别设置",
-                        link: "/sys/setting/statisticalItems/earlyRetirementCategory",
-                        key: "earlyRetirementCategory",
-                        icon: ""
-                    },
-                ]
             },
         ]
     },

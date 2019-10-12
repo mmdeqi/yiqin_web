@@ -27,24 +27,6 @@ const menuData = [
             {
                 title: "考勤统计项设置",
                 key: "statisticalItems",
-                children: [
-                    {
-                        title: "请假类别设置",
-                        key: "leaveCategory"
-                    },
-                    {
-                        title: "加班类别设置",
-                        key: "overtimeCategory"
-                    },
-                    {
-                        title: "迟到类别设置",
-                        key: "lateCategory"
-                    },
-                    {
-                        title: "早退类别设置",
-                        key: "earlyRetirementCategory"
-                    },
-                ]
             }
         ]
     },
